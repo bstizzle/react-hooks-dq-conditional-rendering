@@ -12,21 +12,29 @@ function MenuBar(props) {
 
   */
 
+  function clicked(event){
+
+    let tab = event.target
+    if(tab.className === "item"){
+      return props.onMenuSelection(event)
+    }
+  }
+
   return (
     <div className="ui four item menu">
-      <span className="item active">
+      <span onClick={clicked} id="profile" className={props.selectedPage === "profile" ? "item active" : "item"}>
         <i className="user large icon" />
       </span>
 
-      <span className="item">
+      <span onClick={clicked} id="photos" className={props.selectedPage === "photos" ? "item active" : "item"}>
         <i className="photo large icon" />
       </span>
 
-      <span className="item">
+      <span onClick={clicked} id="cocktails" className={props.selectedPage === "cocktails" ? "item active" : "item"}>
         <i className="cocktail large icon" />
       </span>
 
-      <span className="item">
+      <span onClick={clicked} id="pokemon" className={props.selectedPage === "pokemon" ? "item active" : "item"}>
         <i className=" themeisle large icon" />
       </span>
     </div>
